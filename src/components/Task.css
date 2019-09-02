@@ -1,0 +1,10 @@
+.Task {
+  background-color: #282c34;
+  border-radius: 5px;
+  padding: 8px 16px;
+  text-align: left;
+  margin-bottom: 8px;
+}
+.Task p {
+  margin: 0px;
+}

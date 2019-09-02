@@ -1,0 +1,12 @@
+.PanelTimer {
+  background-color: #343944;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.PanelTimer-ring {
+  height: 40vmin;
+  pointer-events: none;
+}
