@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Ringer
+
+A basic Pomodoro timer and tasklist. For each complete Pomodoro, you get a ring to attach to your tasks as you complete them.
+
+On future commits, the default create-react-app text will be removed.
 
 ## Available Scripts
 
