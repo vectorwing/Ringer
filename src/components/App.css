@@ -5,7 +5,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  text-align: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -21,4 +20,5 @@
   min-width: 60vh;
   margin: 16px;
   padding: 16px;
+  text-align: center;
 }
