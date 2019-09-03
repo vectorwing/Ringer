@@ -1,6 +1,7 @@
 import React from 'react';
 import Task from './Task.js';
 import './PanelTaskList.css';
+import ButtonNewTask from './ButtonNewTask.js';
 
 class PanelTaskList extends React.Component {
   renderTask(index) {
@@ -14,7 +15,10 @@ class PanelTaskList extends React.Component {
   render() {
     return (
       <div className="panel PanelTaskList">
-        {this.props.tasks.map((task, index) => this.renderTask(index))}
+        <ul className="tasklist">
+          {this.props.tasks.map((task, index) => this.renderTask(index))}
+        </ul>
+        <ButtonNewTask />
       </div>
     );
   }
