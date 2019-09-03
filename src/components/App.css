@@ -13,6 +13,30 @@
   color: #61dafb;
 }
 
+button {
+  display: inline-block;
+  border: none;
+  padding: 0.6rem 0.8rem;
+  margin: 0.2em;
+  text-decoration: none;
+  background: #0089be;
+  color: #ffffff;
+  font-size: 0.8em;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 0.3rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button:hover {
+  background: #005194;
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
 .panel {
   background-color: #343944;
   border-radius: 10px;

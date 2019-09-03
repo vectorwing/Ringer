@@ -3,10 +3,15 @@ import './Task.css'
 
 class Task extends React.Component {
   render() {
+    const id = this.props.id;
+    const text = this.props.text;
     return (
-      <div className="Task">
-        <p>{this.props.text}</p>
-      </div>
+      <label for={id} className="Task">
+        <p>
+          {text}
+        </p>
+        <p className="Task-remove">✕</p>
+      </label>
     );
   }
 }

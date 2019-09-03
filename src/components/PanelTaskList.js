@@ -1,18 +1,23 @@
 import React from 'react';
-import PanelTitle from './PanelTitle.js';
 import Task from './Task.js';
 import './PanelTaskList.css';
 
-function PanelTaskList() {
-  return (
-    <div className="panel PanelTaskList">
-      <PanelTitle title="Task List"/>
-      <Task text="Do the dishes" />
-      <Task text="Vacuum the living room" />
-      <Task text="Buy groceries" />
-      <Task text="Do a backflip" />
-    </div>
-  );
+class PanelTaskList extends React.Component {
+  renderTask(index) {
+    return (
+      <Task
+        text={this.props.tasks[index]}
+      />
+    );
+  }
+
+  render() {
+    return (
+      <div className="panel PanelTaskList">
+        {this.props.tasks.map((task, index) => this.renderTask(index))}
+      </div>
+    );
+  }
 }
 
 export default PanelTaskList;

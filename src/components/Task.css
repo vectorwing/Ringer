@@ -5,7 +5,14 @@
   text-align: left;
   font-size: 0.8em;
   margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
 }
+
 .Task p {
   margin: 0px;
+}
+
+.Task-remove {
+  color: #777;
 }
