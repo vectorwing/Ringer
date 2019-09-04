@@ -21,7 +21,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <PanelTimer />
-        <PanelTaskList tasks={this.state.tasks}/>
+        <PanelTaskList/>
       </div>
     );
   }

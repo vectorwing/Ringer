@@ -6,4 +6,17 @@ h2 {
 
 .tasklist {
   margin: 0.2em;
-} 
+}
+
+.button-new-task {
+  background: none;
+  color: #5e6c7a;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.button-new-task:hover {
+  background: #3d424b;
+}

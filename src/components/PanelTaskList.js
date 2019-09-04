@@ -1,27 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Task from './Task.js';
 import './PanelTaskList.css';
-import ButtonNewTask from './ButtonNewTask.js';
 
-class PanelTaskList extends React.Component {
-  renderTask(index) {
+export default function PanelTaskList(props) {
+
+  const [tasks, setTasks] = useState([]);
+
+  function renderTask(index) {
     return (
       <Task
-        text={this.props.tasks[index]}
+        text={tasks[index]}
       />
     );
   }
 
-  render() {
-    return (
-      <div className="panel PanelTaskList">
-        <ul className="tasklist">
-          {this.props.tasks.map((task, index) => this.renderTask(index))}
-        </ul>
-        <ButtonNewTask />
-      </div>
-    );
-  }
+  return (
+    <div className="panel PanelTaskList">
+      <ul className="tasklist">
+        {tasks.map((task, index) => renderTask(index))}
+      </ul>
+      <button className="button-new-task" onClick={() => setTasks(tasks.concat("Hello"))}>
+        + New Task
+      </button>
+    </div>
+  );
 }
-
-export default PanelTaskList;

@@ -14,5 +14,12 @@
 }
 
 .Task-remove {
+  background: none;
+  margin: 0;
+  padding: 0 0.4rem;
   color: #777;
+}
+
+.Task-remove:hover {
+  background: #404852;
 }
