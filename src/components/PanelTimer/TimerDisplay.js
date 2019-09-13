@@ -1,36 +1,51 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './PanelTimer.css';
 
 export default function TimerDisplay(props) {
-  function updateCanvas() {
-    const ctx = this.refs.timer.getContext('2d');
+  
+  const canvasRef = React.useRef(null);
 
+  function updateCanvas(ctx) {
+    ctx.clearRect(0, 0, 400, 400)
     ctx.font = '72px Segoe UI';
     ctx.fillStyle = `#ffffff`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText(this.getTimeFromSeconds(25*60), 200, 200);
+    ctx.fillText(getTimeFromSeconds(props.time), 200, 200);
+
+    var angle = (2 * Math.PI * props.time) / props.baseTime;
+    var offset = 1.5 * Math.PI;
+
+    ctx.beginPath();
+    var start = offset;
+    var end = angle + offset;
 
     ctx.lineWidth = 16;
     ctx.strokeStyle = `#61dafb`;
-    ctx.beginPath();
-    ctx.arc(200, 200, 150, 0, 2 * Math.PI);
+    ctx.arc(200, 200, 150, start, end);
     ctx.stroke();
+    ctx.restore();
   }
-  
+
   function minTwoDigits(n) {
     return (n < 10 ? '0' : '') + n;
   }
 
   function getTimeFromSeconds(seconds) {
-    const minute = minTwoDigits(seconds / 60)
-    const second = minTwoDigits(seconds % 60)
-    return Math.floor(minute) + ':' + second;
+    const minute = Math.floor(seconds / 60);
+    const second = seconds % 60;
+    return minTwoDigits(minute) + ':' + minTwoDigits(second);
   }
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    const ctx = canvas.getContext('2d');
+    updateCanvas(ctx);
+  }, [props.time]);
 
   return (
     <div className="TimerDisplay">
-      <p>{getTimeFromSeconds(props.time)}</p>
+      <canvas ref={canvasRef} width={400} height={400} />
     </div>
   );
 }

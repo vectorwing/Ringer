@@ -6,7 +6,7 @@ import './App.css';
 export default function App(props) {
   return (
     <div className="App">
-      <PanelTimer baseTime={25*60}/>
+      <PanelTimer baseTime={60*25}/>
       <PanelTaskList/>
     </div>
   );

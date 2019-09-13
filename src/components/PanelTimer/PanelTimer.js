@@ -19,7 +19,7 @@ export default function PanelTimer(props) {
 
   useEffect(() => {
     let interval = null;
-    if (isActive) {
+    if (isActive && time > 0) {
       interval = setInterval(() => {
         setTime(time => time - 1);
       }, 1000);
@@ -31,7 +31,7 @@ export default function PanelTimer(props) {
 
   return (
     <div className="panel PanelTimer">
-      <TimerDisplay time={time}/>
+      <TimerDisplay baseTime={props.baseTime} time={time}/>
       <TimerControls
         isActive={isActive}
         toggle={() => toggle()}
