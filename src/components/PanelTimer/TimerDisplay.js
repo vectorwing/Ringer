@@ -15,15 +15,23 @@ export default function TimerDisplay(props) {
 
     var angle = (2 * Math.PI * props.time) / props.baseTime;
     var offset = 1.5 * Math.PI;
-
-    ctx.beginPath();
     var start = offset;
     var end = angle + offset;
 
+    // Blue ring (base)
+    ctx.beginPath();
     ctx.lineWidth = 16;
     ctx.strokeStyle = `#61dafb`;
+    ctx.arc(200, 200, 150, 0, 2 * Math.PI);
+    ctx.stroke();
+
+    // Grey ring (timed)
+    ctx.beginPath();
+    ctx.lineWidth = 18;
+    ctx.strokeStyle = `#282c34`;
     ctx.arc(200, 200, 150, start, end);
     ctx.stroke();
+
     ctx.restore();
   }
 
@@ -41,7 +49,7 @@ export default function TimerDisplay(props) {
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d');
     updateCanvas(ctx);
-  }, [props.time]);
+  });
 
   return (
     <div className="TimerDisplay">
