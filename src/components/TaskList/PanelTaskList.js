@@ -14,6 +14,13 @@ export default function PanelTaskList(props) {
     );
   }
 
+  function removeTask(index) {
+  }
+
+  function renameTask(index, newName) {
+
+  }
+
   return (
     <div className="panel PanelTaskList">
       <ul className="tasklist">

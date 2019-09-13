@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './PanelTimer.css';
 
-export default function TimerDisplay(props) {
+export default function TimerDisplay({baseTime, currentTime}) {
   
   const canvasRef = React.useRef(null);
 
@@ -11,9 +11,9 @@ export default function TimerDisplay(props) {
     ctx.fillStyle = `#ffffff`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText(getTimeFromSeconds(props.time), 200, 200);
+    ctx.fillText(getTimeFromSeconds(currentTime), 200, 200);
 
-    var angle = (2 * Math.PI * props.time) / props.baseTime;
+    var angle = (2 * Math.PI * currentTime) / baseTime;
     var offset = 1.5 * Math.PI;
     var start = offset;
     var end = angle + offset;

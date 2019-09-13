@@ -24,7 +24,9 @@ export default function PanelTimer(props) {
         setTime(time => time - 1);
       }, 1000);
     } else if (isActive && time === 0) {
-      props.onTimerFinish();
+      if (props.onTimerFinish) {
+        props.onTimerFinish();
+      }
       reset();
     } else if (!isActive && time !== 0) {
       clearInterval(interval);
@@ -36,12 +38,12 @@ export default function PanelTimer(props) {
     <div className="panel PanelTimer">
       <TimerDisplay
         baseTime={props.baseTime}
-        time={time}
+        currentTime={time}
       />
       <TimerControls
         isActive={isActive}
-        toggle={() => toggle()}
-        reset={() => reset()}
+        onToggle={() => toggle()}
+        onReset={() => reset()}
       />
     </div>
   );
