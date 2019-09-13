@@ -1,12 +1,8 @@
 import React from 'react';
-import './Timer.css'
+import './PanelTimer.css';
 
-class Timer extends React.Component {
-  componentDidMount() {
-    this.updateCanvas();
-  }
-
-  updateCanvas() {
+export default function TimerDisplay(props) {
+  function updateCanvas() {
     const ctx = this.refs.timer.getContext('2d');
 
     ctx.font = '72px Segoe UI';
@@ -21,24 +17,20 @@ class Timer extends React.Component {
     ctx.arc(200, 200, 150, 0, 2 * Math.PI);
     ctx.stroke();
   }
-
-  minTwoDigits(n) {
+  
+  function minTwoDigits(n) {
     return (n < 10 ? '0' : '') + n;
   }
 
-  getTimeFromSeconds(seconds) {
-    const minute = this.minTwoDigits(seconds / 60)
-    const second = this.minTwoDigits(seconds % 60)
+  function getTimeFromSeconds(seconds) {
+    const minute = minTwoDigits(seconds / 60)
+    const second = minTwoDigits(seconds % 60)
     return Math.floor(minute) + ':' + second;
   }
 
-  render() {
-    return (
-      <div className="Timer">
-        <canvas ref="timer" width={400} height={400} />
-      </div>
-    );
-  }
+  return (
+    <div className="TimerDisplay">
+      <p>{getTimeFromSeconds(props.time)}</p>
+    </div>
+  );
 }
-
-export default Timer;
