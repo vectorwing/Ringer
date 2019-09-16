@@ -1,16 +1,34 @@
 import React, { useState } from 'react';
-import PanelTimer from './PanelTimer/PanelTimer.js';
-import PanelTaskList from './TaskList/PanelTaskList.js';
+import Timer from './Timer/Timer.js';
+import TaskList from './TaskList/TaskList.js';
 import './App.css';
 
-export default function App(props) {
+export default function App() {
   const [rings, setRings] = useState(0);
+  const [tasks, setTasks] = useState([]);
+
+  const handleNewTask = () => {
+    setTasks(tasks.concat("Hello"));
+  }
+
+  const handleRemoveTask = () => {
+    // TODO: Code to remove a given task
+  }
 
   return (
     <div className="App">
-      <p>Rings: {rings}</p>
-      <PanelTimer baseTime={25*60} onTimerFinish={() => setRings(rings => rings + 1)}/>
-      <PanelTaskList/>
+      <div className="panel">
+        <Timer
+          baseTime={25*60}
+          onTimerFinish={() => setRings(rings => rings + 1)}
+          rings={rings}/>
+      </div>
+      <div className="panel">
+        <TaskList
+          list={tasks}
+          onNewTask={handleNewTask}
+          onRemoveTask={handleRemoveTask}/>
+      </div>
     </div>
   );
 }

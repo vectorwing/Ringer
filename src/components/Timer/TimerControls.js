@@ -1,5 +1,5 @@
 import React from 'react';
-import './PanelTimer.css';
+import './Timer.css';
 
 export default function TimerControls({isActive, onToggle, onReset}) {
   return (

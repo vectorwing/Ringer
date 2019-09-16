@@ -1,14 +1,11 @@
 import React from 'react';
 import './Task.css'
 
-export default function Task(props) {
-  const id = props.id;
-  const text = props.text;
-
+export default function Task({onClick, done, text}) {
   return (
-    <li>
-      <label for={id} className="Task">
-        <p>{text}</p>
+    <li className="Task">
+      <label>
+        <input type="text" value={text} readOnly={true} />
         <button className="Task-remove">✕</button>
       </label>
     </li>

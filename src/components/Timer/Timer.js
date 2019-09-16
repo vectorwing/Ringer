@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import './PanelTimer.css';
+import './Timer.css';
 import TimerDisplay from './TimerDisplay';
 import TimerControls from './TimerControls';
 
-export default function PanelTimer(props) {
+export default function Timer({baseTime, onTimerFinish, rings}) {
 
-  const [time, setTime] = useState(props.baseTime);
+  const [time, setTime] = useState(baseTime);
   const [isActive, setIsActive] = useState(false);
 
-  function toggle() {
+  function handleToggle() {
     setIsActive(!isActive);
   }
 
-  function reset() {
-    setTime(props.baseTime);
+  function handleReset() {
+    setTime(baseTime);
     setIsActive(false);
   }
 
@@ -24,10 +24,10 @@ export default function PanelTimer(props) {
         setTime(time => time - 1);
       }, 1000);
     } else if (isActive && time === 0) {
-      if (props.onTimerFinish) {
-        props.onTimerFinish();
+      if (onTimerFinish) {
+        onTimerFinish();
       }
-      reset();
+      handleReset();
     } else if (!isActive && time !== 0) {
       clearInterval(interval);
     }
@@ -35,16 +35,17 @@ export default function PanelTimer(props) {
   });
 
   return (
-    <div className="panel PanelTimer">
+    <div className="PanelTimer">
       <TimerDisplay
-        baseTime={props.baseTime}
+        baseTime={baseTime}
         currentTime={time}
       />
       <TimerControls
         isActive={isActive}
-        onToggle={() => toggle()}
-        onReset={() => reset()}
+        onToggle={() => handleToggle()}
+        onReset={() => handleReset()}
       />
+      <p>Rings: {rings}</p>
     </div>
   );
 }
