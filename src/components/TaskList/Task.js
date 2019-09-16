@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Task.css'
 
 export default function Task({id, text, done, onRenameTask, onRemoveTask}) {
@@ -6,11 +6,16 @@ export default function Task({id, text, done, onRenameTask, onRemoveTask}) {
     const newName = event.target.value;
     onRenameTask(id, newName);
   }
+
+  useEffect(() => {
+    const inputs = [...document.querySelectorAll('input')]
+    inputs[inputs.length - 1].focus();
+  }, []);
+
   return (
     <li className="Task" key={id}>
       <label>
-        {/* <input type="text" value={text} onChange={() => onRenameTask(id, )}/> */}
-        <input type="text" value={text} onChange={handleChange}/>
+        <input className={`task-input-${id}`} type="text" value={text} onChange={handleChange}/>
       </label>
       <button className="Task-remove" onClick={() => onRemoveTask(id)}>✕</button>
     </li>

@@ -18,8 +18,8 @@ export default function TaskList({list, onNewTask, onRenameTask, onRemoveTask}) 
   }
 
   return (
-    <div className="PanelTaskList">
-      <ul className="tasklist">
+    <div className="TaskList">
+      <ul>
         {list.map((task) => renderTask(task))}
       </ul>
       <button className="button-new-task" onClick={() => onNewTask()}>

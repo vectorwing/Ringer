@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './Timer.css';
+//import './Timer.css';
 
 export default function TimerDisplay({baseTime, currentTime}) {
   
