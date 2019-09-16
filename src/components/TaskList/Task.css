@@ -5,8 +5,22 @@
   text-align: left;
   font-size: 0.8em;
   margin-bottom: 8px;
+  list-style: none;
   display: flex;
   justify-content: space-between;
+}
+
+.Task label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Task input {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: inherit;
+  font-family: inherit;
 }
 
 .Task p {

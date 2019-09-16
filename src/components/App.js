@@ -7,12 +7,25 @@ export default function App() {
   const [rings, setRings] = useState(0);
   const [tasks, setTasks] = useState([]);
 
-  const handleNewTask = () => {
-    setTasks(tasks.concat("Hello"));
+  const handleRenameTask = (key, newName) => {
+    const newTasks = [...tasks];
+    const index = newTasks.findIndex(item => item.id === key);
+    newTasks[index].text = newName;
+    setTasks(newTasks);
   }
 
-  const handleRemoveTask = () => {
-    // TODO: Code to remove a given task
+  const handleNewTask = () => {
+    const newTask = {
+      id: Date.now(),
+      text: '',
+      done: false,
+    };
+    setTasks(tasks.concat(newTask));
+  }
+
+  const handleRemoveTask = (key) => {
+    const changedTask = tasks.filter(item => item.id !== key);
+    setTasks(changedTask);
   }
 
   return (
@@ -27,6 +40,7 @@ export default function App() {
         <TaskList
           list={tasks}
           onNewTask={handleNewTask}
+          onRenameTask={handleRenameTask}
           onRemoveTask={handleRemoveTask}/>
       </div>
     </div>
