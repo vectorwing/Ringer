@@ -30,13 +30,13 @@ export default function App() {
 
   return (
     <div className="App">
-      <div className="panel">
+      <div className="panel panel-timer">
         <Timer
           baseTime={25*60}
           onTimerFinish={() => setRings(rings => rings + 1)}
           rings={rings}/>
       </div>
-      <div className="panel">
+      <div className="panel panel-tasklist">
         <TaskList
           list={tasks}
           onNewTask={handleNewTask}

@@ -15,7 +15,7 @@ export default function Task({id, text, done, onRenameTask, onRemoveTask}) {
   return (
     <li className="Task" key={id}>
       <label>
-        <input className={`task-input-${id}`} type="text" value={text} onChange={handleChange}/>
+        <input className={`task-input`} type="text" value={text} onChange={handleChange}/>
       </label>
       <button className="Task-remove" onClick={() => onRemoveTask(id)}>✕</button>
     </li>
