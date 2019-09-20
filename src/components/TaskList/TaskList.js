@@ -11,6 +11,7 @@ export default function TaskList({list, onNewTask, onRenameTask, onRemoveTask}) 
         id={task.id}
         text={task.text}
         done={task.done}
+        onNewTask={onNewTask}
         onRenameTask={onRenameTask}
         onRemoveTask={onRemoveTask}
       />
